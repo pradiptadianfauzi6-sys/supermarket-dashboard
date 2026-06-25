@@ -80,6 +80,21 @@ elif menu == "📈 Visualisasi":
     st.pyplot(fig)
 
 # ==========================
+# MODEL ARIMA
+# ==========================
+elif menu == "🤖 Model ARIMA":
+
+    st.title("🤖 Model ARIMA")
+
+    st.write("""
+    Halaman ini menampilkan proses pembentukan model ARIMA
+    yang digunakan untuk forecasting penjualan supermarket.
+    Tahapan meliputi uji stasioneritas menggunakan ADF Test,
+    identifikasi parameter melalui plot ACF dan PACF,
+    serta penentuan model terbaik berdasarkan nilai AIC.
+    """)
+    
+# ==========================
 # FORECAST
 # ==========================
 elif menu == "🔮 Forecast":
