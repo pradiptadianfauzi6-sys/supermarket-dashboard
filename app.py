@@ -63,69 +63,44 @@ elif menu == "📊 Dataset":
 # ==========================
 # VISUALISASI
 # ==========================
-st.title("📈 Visualisasi Penjualan")
+# ===========================
+# VISUALISASI
+# ===========================
 
-st.write("""
-Halaman ini menampilkan hasil eksplorasi data (Exploratory Data Analysis)
-yang digunakan untuk memahami pola penjualan supermarket sebelum dilakukan
-proses pemodelan menggunakan ARIMA.
-""")
+elif menu == "📈 Visualisasi":
 
-st.subheader("Analisis Agregat Penjualan Berdasarkan Bulan")
-
-st.image(
-    "Monthly Bar Chart.png",
-    use_container_width=True
-)
-
-st.write("""
-Grafik menunjukkan total akumulasi penjualan setiap bulan selama periode
-2015–2018. Terlihat adanya fluktuasi penjualan pada setiap bulan dengan
-beberapa periode mengalami peningkatan penjualan yang cukup signifikan.
-""")
-
-st.subheader("Distribusi Frekuensi Nilai Penjualan Harian")
-
-st.image(
-    "Distribution Plot (1).png",
-    use_container_width=True
-)
-
-st.write("""
-Distribusi data menunjukkan bahwa sebagian besar nilai penjualan berada
-pada rentang yang relatif rendah, sedangkan nilai penjualan yang tinggi
-hanya terjadi pada beberapa periode tertentu.
-""")
-
-# ==========================
-# MODEL ARIMA
-# ==========================
-elif menu == "🤖 Model ARIMA":
-
-    st.title("🤖 Model ARIMA")
+    st.title("📈 Visualisasi Penjualan")
 
     st.write("""
-    Halaman ini menampilkan proses pembentukan model ARIMA
-    yang digunakan untuk forecasting penjualan supermarket.
-    Tahapan meliputi uji stasioneritas menggunakan ADF Test,
-    identifikasi parameter melalui plot ACF dan PACF,
-    serta penentuan model terbaik berdasarkan nilai AIC.
+    Halaman ini menampilkan hasil eksplorasi data (Exploratory Data Analysis)
+    yang digunakan untuk memahami pola penjualan supermarket sebelum dilakukan
+    proses pemodelan menggunakan model ARIMA.
     """)
 
-    st.subheader("Model Terbaik")
+    st.subheader("Analisis Agregat Penjualan Berdasarkan Bulan")
 
-    st.success("""
-    Model terbaik yang diperoleh berdasarkan nilai AIC adalah
-    ARIMA (3,0,3). Model ini kemudian digunakan untuk melakukan
-    forecasting penjualan supermarket pada data testing.
+    st.image(
+        "Monthly Bar Chart.png",
+        use_container_width=True
+    )
+
+    st.write("""
+    Grafik menunjukkan total akumulasi penjualan setiap bulan selama periode
+    2015–2018. Terlihat adanya fluktuasi penjualan pada setiap bulan dengan
+    beberapa periode mengalami peningkatan penjualan yang cukup signifikan.
     """)
 
-    st.subheader("Hasil Uji Stasioneritas (ADF Test)")
+    st.subheader("Distribusi Frekuensi Nilai Penjualan Harian")
 
-    st.info("""
-    Berdasarkan hasil Augmented Dickey-Fuller (ADF) Test,
-    data telah memenuhi kondisi stasioner sehingga dapat
-    digunakan dalam proses pemodelan ARIMA.
+    st.image(
+        "Distribution Plot (1).png",
+        use_container_width=True
+    )
+
+    st.write("""
+    Distribusi data menunjukkan bahwa sebagian besar nilai penjualan berada
+    pada rentang yang relatif rendah, sedangkan nilai penjualan yang tinggi
+    hanya terjadi pada beberapa periode tertentu.
     """)
 # ==========================
 # FORECAST
