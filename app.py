@@ -63,10 +63,6 @@ elif menu == "📊 Dataset":
 # ==========================
 # VISUALISASI
 # ==========================
-# ===========================
-# VISUALISASI
-# ===========================
-
 elif menu == "📈 Visualisasi":
 
     st.title("📈 Visualisasi Penjualan")
@@ -80,7 +76,7 @@ elif menu == "📈 Visualisasi":
     st.subheader("Analisis Agregat Penjualan Berdasarkan Bulan")
 
     st.image(
-        "Monthly Bar Chart.png",
+        "monthly_bar_chart.png",
         use_container_width=True
     )
 
@@ -93,7 +89,7 @@ elif menu == "📈 Visualisasi":
     st.subheader("Distribusi Frekuensi Nilai Penjualan Harian")
 
     st.image(
-        "Distribution Plot (1).png",
+        "distribution_plot.png",
         use_container_width=True
     )
 
