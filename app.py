@@ -93,7 +93,21 @@ elif menu == "🤖 Model ARIMA":
     identifikasi parameter melalui plot ACF dan PACF,
     serta penentuan model terbaik berdasarkan nilai AIC.
     """)
-    
+    st.subheader("Model Terbaik")
+
+st.success("""
+Model terbaik yang diperoleh berdasarkan nilai AIC adalah
+ARIMA (3,0,3). Model ini kemudian digunakan untuk melakukan
+forecasting penjualan supermarket pada data testing.
+""")
+
+st.subheader("Hasil Uji Stasioneritas (ADF Test)")
+
+st.info("""
+Berdasarkan hasil Augmented Dickey-Fuller (ADF) Test,
+data telah memenuhi kondisi stasioner sehingga dapat
+digunakan dalam proses pemodelan ARIMA.
+""")
 # ==========================
 # FORECAST
 # ==========================
