@@ -13,7 +13,12 @@ st.set_page_config(
 # LOAD DATA
 # ==========================
 df = pd.read_csv("sales_clean.csv")
-forecast_df = pd.read_csv("forecast_result.csv")
+
+forecast_df = pd.read_csv(
+    "forecast_result.csv",
+    sep=";"
+)
+
 evaluation = pd.read_csv("evaluation.csv")
 
 # ==========================
@@ -78,25 +83,35 @@ elif menu == "📈 Visualisasi":
 # ==========================
 elif menu == "🔮 Forecast":
 
-    st.title("Forecast")
+    st.title("🔮 Forecast Penjualan")
+
+    st.write("""
+    Halaman ini menampilkan hasil forecasting penjualan menggunakan
+    model ARIMA(3,0,3). Grafik berikut memperlihatkan perbandingan
+    antara data aktual dan hasil prediksi pada data testing.
+    """)
 
     fig, ax = plt.subplots(figsize=(12,5))
 
     ax.plot(
-        pd.to_datetime(forecast_df["Date"]),
+        pd.to_datetime(forecast_df["Order Date"]),
         forecast_df["Actual"],
-        label="Actual"
+        label="Data Aktual"
     )
 
     ax.plot(
-        pd.to_datetime(forecast_df["Date"]),
-        forecast_df["Forecast"],
-        label="Forecast"
+        pd.to_datetime(forecast_df["Order Date"]),
+        forecast_df["Prediction"],
+        label="Prediksi ARIMA(3,0,3)"
     )
 
+    ax.set_xlabel("Tanggal")
+    ax.set_ylabel("Penjualan")
     ax.legend()
 
     st.pyplot(fig)
+
+    st.subheader("Hasil Forecasting")
 
     st.dataframe(forecast_df)
 
