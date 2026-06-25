@@ -122,33 +122,44 @@ elif menu == "📋 Evaluasi":
 
     st.title("📋 Evaluasi Model")
 
-    rmse = evaluation.loc[
-        evaluation["Metric"] == "RMSE",
-        "Value"
-    ].values[0]
+   rmse = evaluation.loc[
+    evaluation["Metrik"] == "RMSE",
+    "Nilai"
+].values[0]
 
-    mape = evaluation.loc[
-        evaluation["Metric"] == "MAPE",
-        "Value"
-    ].values[0]
+mae = evaluation.loc[
+    evaluation["Metrik"] == "MAE",
+    "Nilai"
+].values[0]
 
-    col1, col2 = st.columns(2)
+smape = evaluation.loc[
+    evaluation["Metrik"] == "SMAPE",
+    "Nilai"
+].values[0]
 
-    with col1:
-        st.metric(
-            "RMSE",
-            f"{rmse:,.2f}"
-        )
+col1, col2, col3 = st.columns(3)
 
-    with col2:
-        st.metric(
-            "MAPE",
-            f"{mape:,.2f}%"
-        )
-
-    st.info(
-        "Nilai RMSE dan MAPE diambil dari hasil evaluasi model yang telah disimpan pada file evaluation.csv."
+with col1:
+    st.metric(
+        "RMSE",
+        f"{rmse:.6f}"
     )
+
+with col2:
+    st.metric(
+        "MAE",
+        f"{mae:.6f}"
+    )
+
+with col3:
+    st.metric(
+        "SMAPE",
+        f"{smape:.2f}%"
+    )
+
+st.info(
+    "Nilai RMSE, MAE, dan SMAPE diambil dari hasil evaluasi model ARIMA(3,0,3) yang disimpan pada file evaluation.csv."
+)
 
 # ==========================
 # KESIMPULAN
