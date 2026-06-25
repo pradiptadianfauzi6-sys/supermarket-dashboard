@@ -32,6 +32,7 @@ menu = st.sidebar.radio(
         "🏠 Home",
         "📊 Dataset",
         "📈 Visualisasi",
+        "🤖 Model ARIMA",
         "🔮 Forecast",
         "📋 Evaluasi",
         "📝 Kesimpulan"
