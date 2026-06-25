@@ -14,6 +14,7 @@ st.set_page_config(
 # ==========================
 df = pd.read_csv("sales_clean.csv")
 forecast_df = pd.read_csv("forecast_result.csv")
+evaluation = pd.read_csv("evaluation.csv")
 
 # ==========================
 # SIDEBAR
@@ -104,11 +105,35 @@ elif menu == "🔮 Forecast":
 # ==========================
 elif menu == "📋 Evaluasi":
 
-    st.title("Evaluasi Model")
+    st.title("📋 Evaluasi Model")
 
-    st.metric("RMSE", f"{rmse:.2f}")
+    rmse = evaluation.loc[
+        evaluation["Metric"] == "RMSE",
+        "Value"
+    ].values[0]
 
-    st.metric("MAPE", f"{mape*100:.2f}%")
+    mape = evaluation.loc[
+        evaluation["Metric"] == "MAPE",
+        "Value"
+    ].values[0]
+
+    col1, col2 = st.columns(2)
+
+    with col1:
+        st.metric(
+            "RMSE",
+            f"{rmse:,.2f}"
+        )
+
+    with col2:
+        st.metric(
+            "MAPE",
+            f"{mape:,.2f}%"
+        )
+
+    st.info(
+        "Nilai RMSE dan MAPE diambil dari hasil evaluasi model yang telah disimpan pada file evaluation.csv."
+    )
 
 # ==========================
 # KESIMPULAN
