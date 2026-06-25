@@ -98,6 +98,72 @@ elif menu == "📈 Visualisasi":
     pada rentang yang relatif rendah, sedangkan nilai penjualan yang tinggi
     hanya terjadi pada beberapa periode tertentu.
     """)
+    # ===========================
+# MODEL ARIMA
+# ===========================
+
+elif menu == "🤖 Model ARIMA":
+
+    st.title("🤖 Model ARIMA")
+
+    st.write("""
+    Halaman ini menampilkan tahapan pembentukan model ARIMA yang digunakan
+    untuk melakukan forecasting penjualan supermarket. Tahapan meliputi
+    pengujian stasioneritas data, identifikasi parameter menggunakan plot
+    ACF dan PACF, serta penentuan model terbaik berdasarkan nilai AIC.
+    """)
+
+    # ======================
+    # Hasil Uji Stasioneritas
+    # ======================
+
+    st.subheader("📈 Plot Data Stasioner")
+
+    st.image(
+        "adf_plot.png",
+        use_container_width=True
+    )
+
+    st.write("""
+    Grafik di atas menunjukkan data penjualan yang telah memenuhi kondisi
+    stasioner sehingga dapat langsung digunakan dalam proses pemodelan
+    ARIMA tanpa dilakukan proses differencing (d = 0).
+    """)
+
+    # ======================
+    # Plot ACF & PACF
+    # ======================
+
+    st.subheader("📊 Plot ACF dan PACF")
+
+    st.image(
+        "acf_pacf_plot.png",
+        use_container_width=True
+    )
+
+    st.write("""
+    Plot Autocorrelation Function (ACF) digunakan untuk membantu
+    menentukan nilai parameter q, sedangkan Partial Autocorrelation
+    Function (PACF) digunakan untuk menentukan nilai parameter p.
+    Kedua grafik tersebut digunakan sebagai dasar dalam proses
+    identifikasi parameter model ARIMA.
+    """)
+
+    # ======================
+    # Model Terbaik
+    # ======================
+
+    st.subheader("🏆 Model Terbaik")
+
+    st.success("""
+Model terbaik yang diperoleh berdasarkan proses identifikasi parameter
+dan pencarian nilai Akaike Information Criterion (AIC) terkecil adalah
+**ARIMA(3,0,3)**.
+
+Model tersebut kemudian digunakan untuk melakukan proses forecasting
+terhadap data testing sehingga diperoleh hasil prediksi penjualan yang
+selanjutnya dievaluasi menggunakan metrik RMSE, MAE, dan SMAPE.
+""")
 # ==========================
 # FORECAST
 # ==========================
