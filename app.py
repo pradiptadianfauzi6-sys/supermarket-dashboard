@@ -16,7 +16,8 @@ df = pd.read_csv("sales_clean.csv")
 
 forecast_df = pd.read_csv(
     "forecast_result.csv",
-    sep=";"
+    sep=";",
+    decimal=","
 )
 
 evaluation = pd.read_csv("evaluation.csv")
