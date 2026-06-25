@@ -14,13 +14,12 @@ st.set_page_config(
 # ==========================
 df = pd.read_csv("sales_clean.csv")
 
-forecast_df = pd.read_csv(
-    "forecast_result.csv",
-    sep=";",
-    decimal=","
-)
+df = pd.read_csv("sales_clean.csv")
+
+forecast_df = pd.read_csv("forecast_result.csv")
 
 evaluation = pd.read_csv("evaluation.csv")
+
 
 # ==========================
 # SIDEBAR
