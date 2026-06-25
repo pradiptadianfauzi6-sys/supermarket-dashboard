@@ -63,21 +63,39 @@ elif menu == "📊 Dataset":
 # ==========================
 # VISUALISASI
 # ==========================
-elif menu == "📈 Visualisasi":
+st.title("📈 Visualisasi Penjualan")
 
-    st.title("Visualisasi Penjualan")
+st.write("""
+Halaman ini menampilkan hasil eksplorasi data (Exploratory Data Analysis)
+yang digunakan untuk memahami pola penjualan supermarket sebelum dilakukan
+proses pemodelan menggunakan ARIMA.
+""")
 
-    fig, ax = plt.subplots(figsize=(12,5))
+st.subheader("Analisis Agregat Penjualan Berdasarkan Bulan")
 
-    ax.plot(
-        pd.to_datetime(df["Date"]),
-        df["Sales"]
-    )
+st.image(
+    "Monthly Bar Chart.png",
+    use_container_width=True
+)
 
-    ax.set_xlabel("Tanggal")
-    ax.set_ylabel("Sales")
+st.write("""
+Grafik menunjukkan total akumulasi penjualan setiap bulan selama periode
+2015–2018. Terlihat adanya fluktuasi penjualan pada setiap bulan dengan
+beberapa periode mengalami peningkatan penjualan yang cukup signifikan.
+""")
 
-    st.pyplot(fig)
+st.subheader("Distribusi Frekuensi Nilai Penjualan Harian")
+
+st.image(
+    "Distribution Plot (1).png",
+    use_container_width=True
+)
+
+st.write("""
+Distribusi data menunjukkan bahwa sebagian besar nilai penjualan berada
+pada rentang yang relatif rendah, sedangkan nilai penjualan yang tinggi
+hanya terjadi pada beberapa periode tertentu.
+""")
 
 # ==========================
 # MODEL ARIMA
