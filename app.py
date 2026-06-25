@@ -47,7 +47,7 @@ if menu == "🏠 Home":
     st.title("📈 Forecasting Penjualan Supermarket")
 
     st.write("""
-    Dashboard ini menampilkan hasil forecasting
+    Dashboard ini menampilkan hasil analisis
     penjualan supermarket menggunakan metode ARIMA.
     """)
 
